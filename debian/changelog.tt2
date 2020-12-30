@@ -1,0 +1,5 @@
+openresty-luajit (2.1.0.beta3-1~[% distro %]1) [% distro %]; urgency=low
+
+  * main build
+
+ -- Roman Bulakh <rb@mirohost.net>  Wed, 30 Dec 2020 18:00:01 +0300

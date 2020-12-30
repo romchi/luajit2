@@ -1,0 +1,57 @@
+Source: openresty-luajit
+Section: interpreters
+Priority: optional
+Maintainer: Enrico Tassi <gareuselesinge@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), quilt (>= 0.46-7~)
+Standards-Version: 3.9.4
+Vcs-Git: git://git.debian.org/git/pkg-lua/luajit.git
+Vcs-Browser: http://git.debian.org/?p=pkg-lua/luajit.git
+Homepage: http://luajit.org
+
+Package: openresty-luajit
+Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel hurd-i386
+Conflicts: luajit
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, openresty-libluajit-5.1-common (= ${source:Version})
+Description: Just in time compiler for Lua programming language version 5.1
+ LuaJIT implements the full set of language features defined by Lua 5.1. The
+ virtual machine (VM) is API- and ABI-compatible to the standard Lua interpreter
+ and can be deployed as a drop-in replacement.  
+ .
+ This package contains the standalone interpreter/jitter that can be used
+ as a replacement for the standard lua5.1 interpreter.
+
+Package: openresty-libluajit-5.1-common
+Architecture: all
+Conflicts: libluajit-5.1-common
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Just in time compiler for Lua - common files
+ This package contains files needed by the LuaJIT interpreter/jitter as well
+ by its embeddable (i.e. library) version.
+
+Package: openresty-libluajit-5.1-2
+Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel hurd-i386
+Conflicts: libluajit-5.1-2
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, openresty-libluajit-5.1-common (= ${source:Version})
+Description: Just in time compiler for Lua - library version
+ LuaJIT implements the full set of language features defined by Lua 5.1. The
+ virtual machine (VM) is API- and ABI-compatible to the standard Lua interpreter
+ and can be deployed as a drop-in replacement.  
+ .
+ This package contains an embeddable version of LuaJIT that can be used as a
+ replacement of the standard liblua-5.1 shared library.
+
+Package: openresty-libluajit-5.1-dev
+Section: libdevel
+Conflicts: libluajit-5.1-dev
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Architecture: i386 amd64 kfreebsd-i386 armel armhf powerpc powerpcspe mips mipsel hurd-i386
+Depends: ${shlibs:Depends}, ${misc:Depends}, openresty-libluajit-5.1-2 (= ${binary:Version})
+Description: Just in time compiler for Lua - development files
+ This package contains header files and a statically linkable library for
+ LuaJIT.
